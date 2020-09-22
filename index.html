@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/3d4d50d37e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="src/index.js" />
+    <title>Weather App</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <br />
+          <ul class="weatherToday">
+            <li>
+              <strong>Today</strong>
+            </li>
+            <li id="description">
+              Partly Cloudy
+              <div class="float-right"><i class="fas fa-cloud-sun"></i></div>
+            </li>
+            <li>
+              <strong
+                ><span class="current-temp" id="current-temp">75</span>
+                <span class="unit">
+                  <a href="#" id="to-celsius"> ˚C </a>
+                  |
+                  <a href="#" id="to-fahrenheit"> ˚F </a>
+                </span></strong
+              >
+            </li>
+            <li class="dateTime" id="current-time">September 1, 2020 04:11</li>
+          </ul>
+        </div>
+        <div class="col-7">
+          <form id="search-form">
+            <input
+              type="search"
+              name="City"
+              class="city-search"
+              placeholder="Search cities"
+              autocomplete="off"
+              id="city-input"
+            />
+            <input
+              type="submit"
+              value="Search"
+              id="search-button"
+              class="searchButton"
+            />
+          </form>
+          <button id="current-button">📍</button>
+
+          <hr />
+          <span class="cityHeader">
+            <ul class="currentWeatherInfo">
+              <li>
+                <strong id="large-current-city">Decatur, Georgia, USA</strong>
+              </li>
+              <li id="full-date">Wednesday, September 6 2020 10:30</li>
+              <li id="full-temp">30°F</li>
+              <li id="windspeed">30mph</li>
+              <li id="humidity">humidity</li>
+            </ul>
+          </span>
+        </div>
+      </div>
+      <br />
+      <br />
+      <section class="weatherWeekly">
+        <div class="row">
+          <div class="col-3">
+            65°/68° <br />
+            <i class="far fa-sun"></i>
+            <br />
+            <small>Tuesday</small>
+          </div>
+          <div class="col-3">
+            65°/68° <br />
+            <i class="far fa-sun"></i> <br />
+            <small>Wednesday</small>
+          </div>
+          <div class="col-3">
+            65°/68° <br />
+            <i class="far fa-sun"></i> <br />
+            <small>Thursday</small>
+          </div>
+          <div class="col-3">
+            65°/68° <br />
+            <i class="far fa-sun"></i> <br />
+            <small>Friday</small>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
