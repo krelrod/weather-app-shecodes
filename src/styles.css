@@ -3,6 +3,9 @@ body {
   background: white;
   font-family: "Nunito", sans-serif;
 }
+li {
+  text-transform: capitalize;
+}
 .container {
   background-image: linear-gradient(to top, #ffffff 20%, #fff8ef 100%);
   border-radius: 20px;

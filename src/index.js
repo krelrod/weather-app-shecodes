@@ -1,7 +1,18 @@
 function displayTemp(response) {
   console.log(response.data.main.temp);
   let temperatureElement = document.querySelector("#full-temp");
+  let cityElement = document.querySelector("#city-name");
+  let countryElement = document.querySelector("#country-name");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windspeedElement = document.querySelector("#windspeed");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  countryElement.innerHTML = response.data.sys.country;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windspeedElement.innerHTML = Math.round(response.data.wind.speed);
+  console.log(response.data);
 }
 let apiKey = "1a11d8dac18dce724ebbebc6a9526d87";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Decatur&appid=${apiKey}&units=metric`;
