@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -28,104 +28,100 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-5">
-          <br />
-          <ul class="weatherToday">
-            <li>
-              <strong>Today</strong>
-            </li>
-            <li id="description">
-              Partly Cloudy
-              <div class="float-right"><i class="fas fa-cloud-sun"></i></div>
-            </li>
-            <li>
-              <strong
-                ><span class="current-temp" id="current-temp">75</span>
-                <span class="unit">
-                  <a href="#" id="to-celsius"> ˚C </a>
-                  |
-                  <a href="#" id="to-fahrenheit"> ˚F </a>
-                </span></strong
-              >
-            </li>
-            <li class="dateTime" id="current-time">September 1, 2020 04:11</li>
-          </ul>
-        </div>
-        <div class="col-7">
-          <form id="search-form">
-            <input
-              type="search"
-              name="City"
-              class="city-search"
-              placeholder="Search cities"
-              autocomplete="off"
-              id="city-input"
-            />
-            <input
-              type="submit"
-              value="Search"
-              id="search-button"
-              class="searchButton"
-            />
-          </form>
-          <button id="current-button">📍</button>
-
-          <hr />
-          <span class="cityHeader">
-            <ul class="currentWeatherInfo">
-              <li>
-                <strong id="large-current-city">Decatur, Georgia, USA</strong>
-              </li>
-              <li id="full-date">Wednesday, September 6 2020 10:30</li>
-              <li id="full-temp">30°F</li>
-              <li id="windspeed">Windspeed: 30mph</li>
-              <li id="humidity">Humidity: 30%</li>
-            </ul>
-          </span>
-        </div>
-      </div>
-      <br />
-      <br />
-      <section class="weatherWeekly">
+    <div class="weather-app">
+      <div class="container">
         <div class="row">
-          <div class="col-3">
-            65°/68° <br />
-            <i class="far fa-sun"></i>
+          <div class="col-5">
             <br />
-            <small>Tuesday</small>
+            <ul class="weatherToday">
+              <li>
+                <strong>Today</strong>
+              </li>
+              <li>
+                <div id="description"></div>
+                <div class="float-right"><i class="fas fa-cloud-sun"></i></div>
+              </li>
+
+              <li class="dateTime" id="current-time"></li>
+            </ul>
           </div>
-          <div class="col-3">
-            65°/68° <br />
-            <i class="far fa-sun"></i> <br />
-            <small>Wednesday</small>
-          </div>
-          <div class="col-3">
-            65°/68° <br />
-            <i class="far fa-sun"></i> <br />
-            <small>Thursday</small>
-          </div>
-          <div class="col-3">
-            65°/68° <br />
-            <i class="far fa-sun"></i> <br />
-            <small>Friday</small>
+          <div class="col-7">
+            <form id="search-form">
+              <input
+                type="search"
+                name="City"
+                class="city-search"
+                placeholder="Search cities"
+                autocomplete="off"
+                id="city-input"
+              />
+              <input
+                type="submit"
+                value="Search"
+                id="search-button"
+                class="searchButton"
+              />
+            </form>
+            <button id="current-button">📍</button>
+
+            <hr />
+            <span class="cityHeader">
+              <ul class="currentWeatherInfo">
+                <li>
+                  <strong id="large-current-city">Decatur, Georgia, USA</strong>
+                </li>
+
+                <li>
+                  <div id="full-temp"></div>
+                  <span class="unit">
+                    <a href="#" id="to-celsius"> ˚C </a>
+                    |
+                    <a href="#" id="to-fahrenheit"> ˚F </a>
+                  </span>
+                </li>
+
+                <li id="windspeed">
+                  Windspeed: <span id="windspeed"></span> mph
+                </li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+              </ul>
+            </span>
           </div>
         </div>
-      </section>
+
+        <section class="weatherWeekly">
+          <div class="row">
+            <div class="col-3">
+              <i class="far fa-sun"></i> <br />
+              65°/68° <br />
+              <small class="dayOne">Tuesday</small>
+            </div>
+            <div class="col-3">
+              <i class="far fa-sun"></i> <br />65°/68° <br />
+
+              <small class="dayTwo">Wednesday</small>
+            </div>
+            <div class="col-3">
+              <i class="far fa-sun"></i> <br />
+              65°/68° <br />
+
+              <small class="dayThree">Thursday</small>
+            </div>
+            <div class="col-3">
+              <i class="far fa-sun"></i> <br />
+              65°/68° <br />
+
+              <small class="dayFour">Friday</small>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
     <small
       >View my code on
-      <a href="https://github.com/krelrod/weather-app-shecodes"
-        >Github</a
-      ></small
+      <a href="https://github.com/krelrod/weather-app-shecodes">Github</a>. by
+      Kristi Ann Elrod</small
     >
     <script src="src/index.js"></script>
   </body>
 </html>
-
-//put forecast weather symbol on top remove borders look up how to select the
-forecast days and update them select "partly cloudy" and update with selectors
-from today container: remove time, and CF button, (add the button to main
-section) consider fun picture or video of weather for background? look up better
-color combos

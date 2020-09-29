@@ -1,10 +1,10 @@
 body {
   padding: 50px;
   background: white;
-  font-family: "Raleway Dots", cursive;
+  font-family: "Nunito", sans-serif;
 }
 .container {
-  background-image: linear-gradient(to top, #fadcff 20%, #f8d49e 100%);
+  background-image: linear-gradient(to top, #ffffff 20%, #fff8ef 100%);
   border-radius: 20px;
   border-style: solid;
   border-color: rgb(207, 19, 151);
@@ -14,7 +14,7 @@ body {
 }
 i {
   font-size: 50px;
-  color: rgb(250, 107, 82);
+  color: rgb(255, 161, 227);
 }
 input {
   border-radius: 10px;
@@ -60,6 +60,5 @@ section {
   width: 100%;
 }
 .row .col-3 {
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
