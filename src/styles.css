@@ -7,10 +7,10 @@ li {
   text-transform: capitalize;
 }
 .container {
-  background-image: linear-gradient(to top, #ffffff 20%, #fff8ef 100%);
+  background-image: url("https://images.unsplash.com/photo-1597242051386-c0a24ceae025?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
   border-radius: 20px;
   border-style: solid;
-  border-color: rgb(207, 19, 151);
+  border-color: #bb83f0;
   padding-top: 30px;
   top: 50px;
   max-width: 650px;
@@ -31,32 +31,53 @@ input {
   border-style: none;
 }
 #current-button {
-  border-radius: 50%;
-  padding: 15px;
-  padding-right: 19px;
+  padding-top: 5px;
   background-color: white;
-  border-color: rgb(207, 19, 151);
+  border-style: none;
+  border-radius: 30px;
+  text-align: center;
+}
+#icon-map-marker {
+  color: #8977ea;
+  font-size: 20px;
 }
 .currentWeatherInfo {
   list-style: none;
+  line-height: 2;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 100% 0% 100% 0% / 90% 93% 100% 100%;
+  background-color: rgb(228, 192, 245);
+  opacity: 75%;
 }
 section {
   padding: 25px;
 }
 .cityHeader {
-  font-size: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.weatherStats {
+  font-size: 24px;
+  text-align: left;
+}
+#today-title {
+  font-size: 30px;
 }
 .weatherToday {
   list-style: none;
   font-weight: bold;
+  line-height: 2;
+  height: 300px;
   padding: 30px;
+  padding-top: 35px;
+  padding-bottom: 45px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   border-style: none;
-  border-radius: 20px;
+  border-radius: 1% 100% 0% 86% / 0% 100% 87% 100%;
+  background-color: #a89deb;
+  opacity: 70%;
 }
-.weatherToday .currentCity {
-  font-size: 25px;
-}
+
 .weatherWeekly {
   display: block;
   text-align: center;
@@ -64,4 +85,12 @@ section {
 }
 .row .col-3 {
   border-radius: 15px;
+}
+.dayOne {
+  border-radius: 100% 0% 70% 30% / 35% 0% 100% 65%;
+}
+p.codeCredit {
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
 }

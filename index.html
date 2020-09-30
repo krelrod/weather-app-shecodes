@@ -32,17 +32,19 @@
       <div class="container">
         <div class="row">
           <div class="col-5">
-            <br />
+          
             <ul class="weatherToday">
               <li>
-                <strong>Today</strong>
+                <strong id="today-title">Today</strong>
+                </li> 
               </li>
-              <li>
+             <li class="dateTime" id="current-time"></li>
+              <li> 
+                <div class="float-right">
+                  <img src="" alt="weather icon" id="condition-icon" />
+                </div>
                 <div id="description"></div>
-                <div class="float-right"><i class="fas fa-cloud-sun"></i></div>
               </li>
-
-              <li class="dateTime" id="current-time"></li>
             </ul>
           </div>
           <div class="col-7">
@@ -51,7 +53,7 @@
                 type="search"
                 name="City"
                 class="city-search"
-                placeholder="Search cities"
+                placeholder="Search for a city..."
                 autocomplete="off"
                 id="city-input"
               />
@@ -61,30 +63,29 @@
                 id="search-button"
                 class="searchButton"
               />
+
+              <button id="current-button">
+                <i class="fas fa-map-marker-alt" id="icon-map-marker"></i>
+              </button>
             </form>
-            <button id="current-button">📍</button>
 
             <hr />
-            <span class="cityHeader">
+            
               <ul class="currentWeatherInfo">
-                <li>
-                  <strong id="city-name">Decatur</strong>
-                  <div id="country-name">US</div>
-                </li>
-
-                <li>
-                  <div id="full-temp"></div>
+                <span class="cityHeader"><li>
+                  <span id="city-name">Decatur, </span>, 
+                  <span id="country-name">US</span>
+                </li></span>
+                <li class="weatherStats">
+                  <span id="full-temp"></span>
                   <span class="unit">
-                    <a href="#" id="to-celsius"> ˚C </a>
-                    |
+                    <a href="#" id="to-celsius"> ˚C </a> |
                     <a href="#" id="to-fahrenheit"> ˚F </a>
                   </span>
-                </li>
-
-                <li>Windspeed: <span id="windspeed"></span> Km/H</li>
-                <li>Humidity: <span id="humidity"></span>%</li>
+                </li><li class="weatherStats">Windspeed: <span id="windspeed"></span> Km/H</li>
+                <li class="weatherStats">Humidity: <span id="humidity"></span>%</li> <br />
               </ul>
-            </span>
+            
           </div>
         </div>
 
@@ -92,35 +93,37 @@
           <div class="row">
             <div class="col-3">
               <i class="far fa-sun"></i> <br />
-              65°/68° <br />
-              <small class="dayOne">Tuesday</small>
+              65° / 68° <br />
+              <p class="dayOne">Tuesday</p>
             </div>
             <div class="col-3">
-              <i class="far fa-sun"></i> <br />65°/68° <br />
+              <i class="far fa-sun"></i> <br />65° / 68° <br />
 
-              <small class="dayTwo">Wednesday</small>
-            </div>
-            <div class="col-3">
-              <i class="far fa-sun"></i> <br />
-              65°/68° <br />
-
-              <small class="dayThree">Thursday</small>
+              <p class="dayTwo">Wednesday</p>
             </div>
             <div class="col-3">
               <i class="far fa-sun"></i> <br />
-              65°/68° <br />
+              65° / 68° <br />
 
-              <small class="dayFour">Friday</small>
+              <p class="dayThree">Thursday</p>
+            </div>
+            <div class="col-3">
+              <i class="far fa-sun"></i> <br />
+              65° / 68° <br />
+
+              <p class="dayFour">Friday</p>
             </div>
           </div>
         </section>
       </div>
     </div>
-    <small
-      >View my code on
-      <a href="https://github.com/krelrod/weather-app-shecodes">Github</a>. by
-      Kristi Ann Elrod</small
-    >
+    <p class="codeCredit">
+      <small
+        >View my code on
+        <a href="https://github.com/krelrod/weather-app-shecodes">Github</a>. by
+        Kristi Ann Elrod</small
+      >
+    </p>
     <script src="src/index.js"></script>
   </body>
 </html>
