@@ -6,6 +6,7 @@ function displayTemp(response) {
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windspeedElement = document.querySelector("#windspeed");
+  let dateElement = document.querySelector("#current-time");
   let conditionIconElement = document.querySelector("#condition-icon");
   conditionIconElement.setAttribute(
     "src",
@@ -18,12 +19,39 @@ function displayTemp(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windspeedElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   console.log(response.data);
+}
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  console.log(response.data);
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+      <div class="col-2">
+      <h3 id="forecast-time"> ${formatHours(forecast.dt * 1000)}</h3>
+      <img src="http://openweathermap.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png" id="forecast-condition-icon" /> <br />
+      <div class="forecast-max-and-min">
+      <strong>${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
+      forecast.main.temp_min
+    )}° <br /> Max/Min
+
+      </div></div>
+      `;
+  }
 }
 function search(city) {
   let apiKey = "1a11d8dac18dce724ebbebc6a9526d87";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemp);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 function submitSearch(event) {
   event.preventDefault();
@@ -61,8 +89,8 @@ search("Decatur");
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitSearch);
 
-function currentTime() {
-  let time = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
   let days = [
     "Sunday",
@@ -73,7 +101,6 @@ function currentTime() {
     "Friday",
     "Saturday",
   ];
-
   let months = [
     "January",
     "February",
@@ -89,32 +116,34 @@ function currentTime() {
     "December",
   ];
 
-  let currentMonth = months[time.getMonth()];
-  let currentDay = days[time.getDay()];
-  let currentDate = time.getDate();
-  let currentYear = time.getFullYear();
-  let currentHour = time.getHours();
-  let currentMinutes = time.getMinutes();
-
-  if (currentHour < 10) {
-    currentHour = `0${currentHour}`;
-  }
-
-  if (currentMinutes < 10) {
-    currentMinutes = `0${currentMinutes}`;
-  }
-
-  return `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} | ${currentHour}:${currentMinutes}`;
+  let currentMonth = months[date.getMonth()];
+  let currentDay = days[date.getDay()];
+  let currentDate = date.getDate();
+  let currentYear = date.getFullYear();
+  return `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} | ${formatHours(
+    timestamp
+  )}`;
 }
 
-let fullTimeShown = document.querySelector("#current-time");
-fullTimeShown.innerHTML = currentTime();
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 function retrievePosition(position) {
   let apiKey = "1a11d8dac18dce724ebbebc6a9526d87";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(displayTemp);
 }
 function geoLocation(event) {
