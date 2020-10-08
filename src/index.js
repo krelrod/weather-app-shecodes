@@ -28,7 +28,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
       <div class="col-2">
@@ -71,7 +71,7 @@ function showFahrenheitTemp(event) {
 function showcelsiusTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#full-temp");
-  celsiusLink.classList.add("active");
+  let forecastElement = celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -145,6 +145,8 @@ function retrievePosition(position) {
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(displayTemp);
+  url = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayForecast);
 }
 function geoLocation(event) {
   event.preventDefault();
